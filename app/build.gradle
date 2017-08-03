@@ -11,10 +11,27 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    signingConfigs{
+        release{
+            storeFile file("../.sign/app.keystore")
+            storePassword "storepassword"
+            keyAlias "keyalias"
+            keyPassword "keypassword"
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "REPORT_CRASH", "true")
+        }
+        homolog {
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "REPORT_CRASH", "true")
+        }
+        debug {
+            buildConfigField("boolean", "REPORT_CRASH", "false")
         }
     }
     productFlavors{
@@ -25,17 +42,14 @@ android {
             applicationIdSuffix = ".demo"
         }
         diferencial{
-            applicationId "br.com.henrique.direferente"
+            applicationId "com.example.logonrm.diferencial"
+            versionName "0.0.1"
+            versionCode 1
         }
     }
 
 }
 
-repositories{
-    maven{
-        url "file:///C:/rep/"
-    }
-}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

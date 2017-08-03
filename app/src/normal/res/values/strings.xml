@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ToastApp</string>
-    <string name="titulo">Hello World!</string>
+    <string name="titulo">Hello World! Normal</string>
+
 </resources>

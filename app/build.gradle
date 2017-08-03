@@ -38,7 +38,7 @@ android {
         normal{
         }
         demo{
-            applicationIdSuffix = ".demo"
+            applicationIdSuffix = "demo"
         }
         diferencial{
             applicationId "com.example.logonrm.diferencial"
